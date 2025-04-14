@@ -38,9 +38,11 @@ Este archivo `README.md` proporciona una guía rápida sobre cómo configurar y 
     ```latex
     \usecolortheme{colores/uned}
     ```
-    * El archivo con la paleta de colores de la UNED (`colores/uned.sty`) contiene las definiciones de los colores primarios y secundarios de la universidad. Si deseas modificar estos colores, edita directamente ese archivo.
+    * El archivo con la paleta de colores de la UNED (`colores/uned.sty`) contiene las definiciones de los colores primarios y secundarios de la Universidad Estatal a Distancia. Si deseas modificar estos colores, edita directamente ese archivo. No obstante, lo más recomendable sería que crearas un nuevo tema con colores diferentes.
   
-    No obstante, esta plantilla también contiene un gran número de otros temas de colores que se pueden utilizar:
+    ![Ejemplo del Tema UNED](ejemplos/poster-uned.png)
+  
+    No obstante, este proyecto también contiene un gran número de otros temas de colores que se pueden utilizar:
 
     * `brown` y `brown-minimal`
     * `gemini`
