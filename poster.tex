@@ -1,0 +1,118 @@
+\documentclass[final]{beamer}
+
+% Soporte para idioma español
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage[spanish]{babel}
+
+% Especifica las dimensiones de tu poster
+\usepackage[size=custom,width=120,height=72,scale=1.0]{beamerposter}
+
+% Fuente predeterminada
+\usepackage{lmodern}
+\usepackage{anyfontsize}
+
+% Escoge tema y colores del poster
+\usetheme{temas/gemini}
+\usecolortheme{colores/uned}
+
+% Paquetes de soporte matemático
+\usepackage{amsmath,amsthm, amssymb}
+\usepackage{newtxmath, latexsym}
+\usepackage{cancel}
+\usepackage{array}
+
+%  Soporte de colores y gráficos
+\usepackage{graphicx}
+
+% Soporte para figuras multicolumna
+\usepackage{subcaption}
+
+% Soporte para creación de tablas
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+
+% Soporte para enumeraciones y viñetas
+\usepackage[inline]{enumitem}
+
+% Soporte Bibligráfico
+\usepackage[backend=biber, style=apa, language=spanish, dateabbrev=false, labelyear=true]{biblatex}
+\addbibresource{poster.bib}
+
+% Soporte para diagramas, geometría euclídea y gráficos de funciones
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+\usepackage{tkz-fct}
+\usetikzlibrary{arrows,calc,intersections,through,backgrounds,patterns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+
+% ====================
+% Longitudes
+% ====================
+
+% Si tienes N columnas, escoge un \sepwidth y un \colwidth tal que
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.3\paperwidth}
+
+% Define el separador de columnas
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% Redefine la función seno en español.
+\renewcommand{\sin}{\operatorname{sen}}
+
+% ====================
+% Barra de Título
+% ====================
+\title{Título del Póster}
+\author{Autor 1 \inst{1} \and Autor 2 \inst{2} \and Autor 3 \inst{2}}
+\institute[shortinst]{Institución 1 \inst{1} \samelineand Institución 2 \inst{2}}
+
+% ====================
+% Pie de página (optional)
+% ====================
+\footercontent{
+  \href{https://www.ejemplo.com}{https://www.ejemplo.com} \hfill
+  Conferencia Interncional de Matemática, San José --- 33142 \hfill
+  \href{mailto:autor@ejemplo.com}{autor@ejemplo.com}}
+
+% ====================
+% Logo
+% ====================
+
+% use esta sección para incluir logos a la izquiera y/o derecha del encabezado:
+% Izquierda: institución
+%\logoright{\includegraphics[scale=4.0]{logos/logo-white-text.png}}
+
+% Derecha: otras afiliaciones 
+%\logoright{\includegraphics[height=7cm]{logos/NSF.eps}}
+
+% ====================
+% Cuerpo del documento
+% ====================
+
+% Define el número de páginas y columnas del documento
+\newcommand{\paginas}{1}
+\newcommand{\columnas}{3}
+
+\begin{document}
+
+\foreach \i in {1,...,\paginas} {
+    \begin{frame}[t] 
+        \begin{columns}[t]
+            \separatorcolumn
+            \foreach \j in {1,...,\columnas} {
+                \begin{column}{\colwidth} 
+                    \IfFileExists{paginas/\i/col-\j.tex}{%
+                        \include{paginas/\i/col-\j}%
+                    }{}
+                \end{column}
+            }
+            \separatorcolumn
+        \end{columns}
+    \end{frame}
+}
+\end{document}
